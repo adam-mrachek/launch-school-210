@@ -2,18 +2,23 @@
 // (The first Fibonacci number has an index of 1.)
 
 function findFibonacciIndexByLength(digits) {
-  let fibonacciNumbers = [1, 1];
+  let first = 1n;
+  let second = 1n;
   let fibNumber;
+  let index = 2n;
 
-  for (let index = 3; ; index++) {
-    fibNumber = fibonacciNumbers[index - 1] + fibonacciNumbers[index - 2];
+  while (String(fibNumber).length <= digits) {
+    fibNumber = first + second;
 
-    if (BigInt(fibNumber.toString().length) === digits) {
-      console.log(index)
-      return index;
+    if (BigInt(String(fibNumber).length) === digits) {
+      console.log(BigInt(index + 1n));
+      return BigInt(index + 1n);
     } else {
-      fibonacciNumbers.push(fibNumber);
+      first = second;
+      second = fibNumber;
     }
+
+    index++
   }
 }
 
@@ -23,14 +28,14 @@ findFibonacciIndexByLength(2n) === 7n;    // 1 1 2 3 5 8 13
 findFibonacciIndexByLength(3n) === 12n;   // 1 1 2 3 5 8 13 21 34 55 89 144
 findFibonacciIndexByLength(10n) === 45n;
 findFibonacciIndexByLength(16n) === 74n;
-// findFibonacciIndexByLength(100n) === 476n;
-// findFibonacciIndexByLength(1000n) === 4782n;
-// findFibonacciIndexByLength(10000n) === 47847n;
+findFibonacciIndexByLength(100n) === 476n;
+findFibonacciIndexByLength(1000n) === 4782n;
+findFibonacciIndexByLength(10000n) === 47847n;
 
 // DATA STRUCTURES
 // Input: Integer representing the number of digits of fib number we need to find index for
 // Output: Number representing index of first fib number with matching number of digits
-// Execution: Array to hold all found fib numbers and to find index of match
+// Execution: Three variables to hold first and second number along with the fibonacci number
 
 // ALGORITHM
 // Declare variable `fibonacciNumber` and initialize to array with first two fib numbers
