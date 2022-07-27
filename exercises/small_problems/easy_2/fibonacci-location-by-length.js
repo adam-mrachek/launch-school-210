@@ -13,24 +13,22 @@ function findFibonacciIndexByLength(digits) {
     if (BigInt(String(fibNumber).length) === digits) {
       console.log(BigInt(index + 1n));
       return BigInt(index + 1n);
-    } else {
-      first = second;
-      second = fibNumber;
     }
+    first = second;
+    second = fibNumber;
 
-    index++
+    index++;
   }
 }
 
-
 // EXAMPLES & TEST CASES
-findFibonacciIndexByLength(2n) === 7n;    // 1 1 2 3 5 8 13
-findFibonacciIndexByLength(3n) === 12n;   // 1 1 2 3 5 8 13 21 34 55 89 144
-findFibonacciIndexByLength(10n) === 45n;
-findFibonacciIndexByLength(16n) === 74n;
-findFibonacciIndexByLength(100n) === 476n;
-findFibonacciIndexByLength(1000n) === 4782n;
-findFibonacciIndexByLength(10000n) === 47847n;
+findFibonacciIndexByLength(2n);
+findFibonacciIndexByLength(3n);
+findFibonacciIndexByLength(10n);
+findFibonacciIndexByLength(16n);
+findFibonacciIndexByLength(100n);
+findFibonacciIndexByLength(1000n);
+findFibonacciIndexByLength(10000n);
 
 // DATA STRUCTURES
 // Input: Integer representing the number of digits of fib number we need to find index for
